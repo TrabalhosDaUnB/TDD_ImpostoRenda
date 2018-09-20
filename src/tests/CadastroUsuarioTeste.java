@@ -10,10 +10,11 @@ public class CadastroUsuarioTeste {
 
 	@Test
 	public void testCadastroUsuario() {
-		boolean resposta;
-		Usuario user;
-		resposta = Usuario.obterUsuario("Jabulane", "555.777.888-11");
-		assertTrue(resposta);
+		Usuario user = Usuario.obterUsuario("Jabulane", "555.777.888-11");
+		assertNotNull(user);
+		assertEquals("Jabulane", user.nome);
+		assertEquals("555.777.888-11", user.cpf);
 	}
+
 
 }
