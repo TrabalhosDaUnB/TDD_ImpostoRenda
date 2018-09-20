@@ -29,14 +29,14 @@ public class CadastroUsuarioTeste {
 		
 		Usuario user1 = Usuario.obterUsuario("Jabulane", "555.777.888-11");
 		assertNotNull(user1);
-		assertEquals("Chicó", user1.nome);
-		assertEquals("333.222.111-11", user1.cpf);
+		assertEquals("Jabulane", user1.nome);
+		assertEquals("555.777.888-11", user1.cpf);
 
 		
 		Usuario user2 = Usuario.obterUsuario("Chicó", "333.222.111-11");
 		assertNotNull(user2);
-		assertEquals("Jabulane", user2.nome);
-		assertEquals("555.777.888-11", user2.cpf);
+		assertEquals("Chicó", user2.nome);
+		assertEquals("333.222.111-11", user2.cpf);
 		
 	}
 }
