@@ -20,8 +20,8 @@ public class CadastroUsuarioTeste {
 	public void testCadastroUsuario2() {
 		Usuario user2 = Usuario.obterUsuario("Chicó", "333.222.111-11");
 		assertNotNull(user2);
-		assertEquals("Jabulane", user2.nome);
-		assertEquals("555.777.888-11", user2.cpf);
+		assertEquals("Chicó", user2.nome);
+		assertEquals("333.222.111-11", user2.cpf);
 	}
 
 }
