@@ -2,15 +2,11 @@ package tests;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
 import org.junit.runners.Parameterized;
 
 import app.Usuario;
@@ -27,6 +23,7 @@ public class CadastroUsuarioTeste {
 	}
 	
 	
+	@SuppressWarnings("rawtypes")
 	@Parameterized.Parameters
 	public static Collection testData(){
 				
