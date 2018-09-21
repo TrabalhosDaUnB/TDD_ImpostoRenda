@@ -21,7 +21,7 @@ public class CadastroUsuarioTeste {
 		this.nome = n;
 		this.cpf = c;
 	}
-	
+
 	
 	@SuppressWarnings("rawtypes")
 	@Parameterized.Parameters
