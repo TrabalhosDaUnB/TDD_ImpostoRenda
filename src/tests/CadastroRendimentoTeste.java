@@ -30,9 +30,9 @@ public class CadastroRendimentoTeste {
 		Rendimento rend2 = Rendimento.obterRendimento("aluguel", 1500.00);
 		assertNotNull(rend2);
 		
-		boolean resposta = user.addRendimento(rend1);
+		boolean resposta = user.addRendimento(rend2);
 		assertTrue(resposta);
-		assertEquals(user.getRendimentoTotal(), 2500.00, 0.01);
+		assertEquals(user.getRendimentoTotal(), 1500.00, 0.01);
 		
 	}
 
