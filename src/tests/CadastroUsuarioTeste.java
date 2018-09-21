@@ -6,13 +6,14 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import app.Usuario;
 
 @RunWith(Parameterized.class)
-public class CadastroUsuarioTeste {
+public class CadastroUsuarioTeste { 
 	
 	private String nome; 
 	private String cpf;
@@ -38,7 +39,7 @@ public class CadastroUsuarioTeste {
 	}
 
 	
-	
+	@Category({TesteDeCadastro.class,TesteDeUsuario.class})
 	@Test
 	public void testCadastroUsuario() {
 		

@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
@@ -18,7 +19,7 @@ public class CadastroDeducaoTeste {
 
 	
 	//Atributos objeto de teste
-	private String uNome;
+	private String uNome; 
 	private String uCpf;
 	private ArrayList<DeducaoParam> dParam = new ArrayList();
 	private int dQtd;
@@ -77,6 +78,7 @@ public class CadastroDeducaoTeste {
 	
 	}
 	
+	@Category({TesteDeCadastro.class, TesteDeValor.class})
 	@Test
 	public void testCadastroDeducao() {
 		
