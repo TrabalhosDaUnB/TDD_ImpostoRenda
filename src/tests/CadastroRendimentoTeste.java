@@ -21,5 +21,19 @@ public class CadastroRendimentoTeste {
 		assertEquals(user.getRendimentoTotal(), 2500.00,0.01);
 		
 	}
+	
+	@Test
+	public void testCadastroRendimento2() {
+		
+		Usuario user = Usuario.obterUsuario("joaquim", "222.333.444-33");
+		
+		Rendimento rend2 = Rendimento.obterRendimento("aluguel", 1500.00);
+		assertNotNull(rend2);
+		
+		boolean resposta = user.addRendimento(rend1);
+		assertTrue(resposta);
+		assertEquals(user.getRendimentoTotal(), 2500.00, 0.01);
+		
+	}
 
 }
