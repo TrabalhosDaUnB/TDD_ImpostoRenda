@@ -1,14 +1,20 @@
 package app;
 
+import exceptions.ValorInvalidoException;
+
 public class Deducao {
 
 	private String tipo;
 	private double valor;
 	
 	
-	Deducao(String tipo, double valor){ 
+	Deducao(String tipo, double valor) throws ValorInvalidoException{ 
 		this.tipo = tipo; 
-		this.valor = valor;
+		this.valor = valor; 
+		
+		if(valor < 0) {
+			throw new ValorInvalidoException();
+		}
 		
 		if(this.tipo.equals("PA")) {
 			
@@ -21,7 +27,7 @@ public class Deducao {
 		
 	}
 
-	public static Deducao obterDeducao(String t, double v) {
+	public static Deducao obterDeducao(String t, double v) throws ValorInvalidoException {
 		
 		return new Deducao(t, v);
 	

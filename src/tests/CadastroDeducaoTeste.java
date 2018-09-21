@@ -13,6 +13,7 @@ import org.junit.runners.Parameterized;
 
 import app.Deducao;
 import app.Usuario;
+import exceptions.ValorInvalidoException;
 
 @RunWith(Parameterized.class)
 public class CadastroDeducaoTeste {
@@ -62,7 +63,7 @@ public class CadastroDeducaoTeste {
 		Object[] param3 = {"Nome1", "111.222.333-44", deds3, 1, 360.00};
 		
 	
-		//Param 4
+		//Param 4 
 		ArrayList<DeducaoParam> deds4 = new ArrayList();
 		deds4.add(new DeducaoParam("PA", 2));
 		deds4.add(new DeducaoParam("previdencia", 100.50));
@@ -80,7 +81,7 @@ public class CadastroDeducaoTeste {
 	
 	@Category({TesteDeCadastro.class, TesteDeValor.class})
 	@Test
-	public void testCadastroDeducao() {
+	public void testCadastroDeducao() throws ValorInvalidoException {
 		
 		boolean resposta;
 		
