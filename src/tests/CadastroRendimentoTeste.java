@@ -24,7 +24,7 @@ public class CadastroRendimentoTeste {
 	
 	public CadastroRendimentoTeste(String n, String c, ArrayList<ParametrosRendimentosTeste> pRend, double vTotal) {
 		
-		this.nomeUsuario = n;
+		this.nomeUsuario = n; 
 		this.cpfUsuario = c;
 		this.conjuntoRendimentos = pRend;
 		this.totalRendimentos = vTotal;

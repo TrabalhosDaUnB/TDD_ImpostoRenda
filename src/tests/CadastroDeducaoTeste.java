@@ -2,74 +2,97 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import app.Deducao;
 import app.Usuario;
 
+@RunWith(Parameterized.class)
 public class CadastroDeducaoTeste {
 
-	@Test
-	public void testCadastroDeducaoPrevidencia() {
+	
+	//Atributos objeto de teste
+	private String uNome;
+	private String uCpf;
+	private ArrayList<DeducaoParam> dParam = new ArrayList();
+	private int dQtd;
+	private double total;
+	
+	
+	//Construtor modificado
+	public CadastroDeducaoTeste(String nome, String CPF, ArrayList<DeducaoParam> dedu, int qtd, double t) {
 		
-		boolean resposta;
-		
-		
-		Usuario user = Usuario.obterUsuario("Fulano", "111.222.333-44");
-		assertNotNull(user);
-		
-		Deducao ded = Deducao.obterDeducao("previdencia", 500.00);
-		assertNotNull(ded);
-		
-		resposta = user.addDeducao(ded);
-		assertTrue(resposta);
-		assertEquals(user.getNumeroDeducoes(), 1);
-		assertEquals(user.getTotalDeducoes(), 500.00, 0.01);
+		this.uNome = nome;
+		this.uCpf = CPF;
+		this.dParam = dedu;
+		this.dQtd = qtd;
+		this.total = t;
 		
 	}
 	
-	@Test
-	public void testCadastroDeducaoPA() {
-		
-		boolean resposta;
-		
-		//Aceitando como deducao ser 180 por PA
-		
-		Usuario user = Usuario.obterUsuario("Fulano", "111.222.333-44");
-		assertNotNull(user);
-		
-		Deducao ded = Deducao.obterDeducao("PA", 2);
-		assertNotNull(ded);
-		
-		resposta = user.addDeducao(ded);
-		assertTrue(resposta);
-		assertEquals(user.getNumeroDeducoes(), 1);
-		assertEquals(user.getTotalDeducoes(), 360.00,0.01);
+	@Parameterized.Parameters
+	public static Collection testData() {
 		
 		
+		//Param 1
+		ArrayList<DeducaoParam> deds1 = new ArrayList();
+		deds1.add(new DeducaoParam("previdencia", 100.00));
+	
+		Object[] param1 = {"Nome", "111.222.333-44", deds1, 1, 100.00};
+	
+		
+		//Param 2
+		ArrayList<DeducaoParam> deds2 = new ArrayList();
+		deds2.add(new DeducaoParam("PA", 1));
+	
+		Object[] param2 = {"Nomes", "111.222.333-44", deds2, 1, 180.00};
+		
+		
+		//Param 3
+		ArrayList<DeducaoParam> deds3 = new ArrayList();
+		deds3.add(new DeducaoParam("PA", 2));
+	
+		Object[] param3 = {"Nome1", "111.222.333-44", deds3, 1, 360.00};
+		
+	
+		//Param 4
+		ArrayList<DeducaoParam> deds4 = new ArrayList();
+		deds4.add(new DeducaoParam("PA", 2));
+		deds4.add(new DeducaoParam("previdencia", 100.50));
+	
+		Object[] param4 = {"Nome3", "111.222.333-44", deds4, 2, 460.50};
+	
+		return Arrays.asList(new Object[][] {
+			param1,
+			param2,
+			param3,
+			param4
+		});
+	
 	}
 	
-	
 	@Test
-	public void testCadastroPrevidenciaMaisPA() {
+	public void testCadastroDeducao() {
+		
 		boolean resposta;
 		
-		Usuario user = Usuario.obterUsuario("Fulano", "111.222.333-44");
+		Usuario user = Usuario.obterUsuario(this.uNome, this.uCpf);
 		assertNotNull(user);
 		
-		Deducao ded = Deducao.obterDeducao("PA", 2);
-		assertNotNull(ded);
-		resposta = user.addDeducao(ded);
-		assertTrue(resposta);
-		assertEquals(user.getNumeroDeducoes(),1);
-		assertEquals(user.getTotalDeducoes(),360.00,0.01);
+		for(DeducaoParam d : this.dParam) {
+			Deducao ded = Deducao.obterDeducao(d.tipo, d.valor);
+			assertNotNull(ded);
+			resposta = user.addDeducao(ded);
+		}
 		
-		Deducao ded2 = Deducao.obterDeducao("previdencia", 555.55);
-		assertNotNull(ded2);
-		resposta = user.addDeducao(ded2);
-		assertTrue(resposta);
-		assertEquals(user.getNumeroDeducoes(),2);
-		assertEquals(user.getTotalDeducoes(),915.55,0.01);
+		assertEquals(user.getNumeroDeducoes(), this.dQtd);
+		assertEquals(user.getTotalDeducoes(), this.total, 0.001);
 		
 	}
 
