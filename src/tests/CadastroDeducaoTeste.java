@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import app.Deducao;
 import app.Usuario;
 
 public class CadastroDeducaoTeste {

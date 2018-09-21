@@ -8,7 +8,9 @@ public class Usuario {
 	public String nome;
 	public String cpf;
 	public ArrayList<Rendimento> rendimentos = new ArrayList();
+	public ArrayList<Deducao> deducoes = new ArrayList();
 	public double rendimentoTotal = 0.0;
+	public double totalDeducoes = 0.0;
 	
 	
 	private Usuario(String n, String cpf){
@@ -39,5 +41,34 @@ public class Usuario {
 		}
 		
 		return this.rendimentoTotal;
+	}
+
+
+	public boolean addDeducao(Deducao ded) {
+		
+		if(deducoes.add(ded)) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+
+
+	public Object getNumeroDeducoes() {
+		return deducoes.size();
+	}
+
+
+	public Object getTotalDeducoes() {
+		
+		totalDeducoes = 0.0;
+		
+		for(Deducao d : deducoes) {
+			totalDeducoes += d.getValor();
+		}
+		
+		return totalDeducoes;
+		
 	}
 }
