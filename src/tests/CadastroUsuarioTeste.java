@@ -2,41 +2,55 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized.Parameter;
+import org.junit.runners.Parameterized.Parameters;
+import org.junit.runners.Parameterized;
 
 import app.Usuario;
 
+@RunWith(Parameterized.class)
 public class CadastroUsuarioTeste {
+	
+	private String nome;
+	private String cpf;
+	
+	public CadastroUsuarioTeste(String n, String c) {
+		this.nome = n;
+		this.cpf = c;
+	}
+	
+	
+	@Parameterized.Parameters
+	public static Collection testData(){
+				
+		String nome1 = "chico", nome2 = "jabulane", nome3 = "chibulane";
+		String cpf1 = "111.222.333-44", cpf2 = "555.666.777-88", cpf3 = "111.666.333-88";
+	
+		return Arrays.asList(new Object[][]{
+								{nome1, cpf1},
+								{nome2, cpf2},
+								{nome3, cpf3}
+								});
+	}
 
+	
+	
 	@Test
 	public void testCadastroUsuario() {
-		Usuario user = Usuario.obterUsuario("Jabulane", "555.777.888-11");
+		
+		Usuario user = Usuario.obterUsuario(nome, cpf);
+		
 		assertNotNull(user);
-		assertEquals("Jabulane", user.nome);
-		assertEquals("555.777.888-11", user.cpf);
-	}
-
-	@Test
-	public void testCadastroUsuario2() {
-		Usuario user2 = Usuario.obterUsuario("Chicó", "333.222.111-11");
-		assertNotNull(user2);
-		assertEquals("Chicó", user2.nome);
-		assertEquals("333.222.111-11", user2.cpf);
-	}
-
-	@Test
-	public void testCadastroDoisUsuarios() {
-		
-		Usuario user1 = Usuario.obterUsuario("Jabulane", "555.777.888-11");
-		assertNotNull(user1);
-		assertEquals("Jabulane", user1.nome);
-		assertEquals("555.777.888-11", user1.cpf);
-
-		
-		Usuario user2 = Usuario.obterUsuario("Chicó", "333.222.111-11");
-		assertNotNull(user2);
-		assertEquals("Chicó", user2.nome);
-		assertEquals("333.222.111-11", user2.cpf);
+		assertEquals(nome, user.nome);
+		assertEquals(cpf, user.cpf);
 		
 	}
+	
 }
