@@ -6,11 +6,21 @@ public class Deducao {
 	private double valor;
 	
 	
-	Deducao(String tipo, double valor){
-		this.tipo = tipo;
+	Deducao(String tipo, double valor){ 
+		this.tipo = tipo; 
 		this.valor = valor;
+		
+		if(this.tipo.equals("PA")) {
+			
+			this.valor = valor * 180;
+			
+		} else {
+			this.valor = valor;
+		}
+		
+		
 	}
-	
+
 	public static Deducao obterDeducao(String t, double v) {
 		
 		return new Deducao(t, v);

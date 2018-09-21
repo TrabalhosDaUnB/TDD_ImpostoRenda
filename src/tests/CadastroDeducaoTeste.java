@@ -24,7 +24,7 @@ public class CadastroDeducaoTeste {
 		resposta = user.addDeducao(ded);
 		assertTrue(resposta);
 		assertEquals(user.getNumeroDeducoes(), 1);
-		assertEquals(user.getTotalDeducoes(), 500.00);
+		assertEquals(user.getTotalDeducoes(), 500.00, 0.01);
 		
 	}
 	
@@ -44,7 +44,7 @@ public class CadastroDeducaoTeste {
 		resposta = user.addDeducao(ded);
 		assertTrue(resposta);
 		assertEquals(user.getNumeroDeducoes(), 1);
-		assertEquals(user.getTotalDeducoes(), 320.00);
+		assertEquals(user.getTotalDeducoes(), 360.00,0.01);
 		
 		
 	}

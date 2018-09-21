@@ -31,7 +31,7 @@ public class CadastroRendimentoTeste {
 		
 	}
 	
-	@Parameterized.Parameters
+	@Parameterized.Parameters  
 	public static Collection testData(){
 		
 		//Somente 1 Rendimento

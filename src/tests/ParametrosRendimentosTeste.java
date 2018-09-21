@@ -8,6 +8,6 @@ public class ParametrosRendimentosTeste {
 	ParametrosRendimentosTeste(String t, double v){
 		this.tipo = t;
 		this.valor = v;
-	}
+	} 
 	
 }

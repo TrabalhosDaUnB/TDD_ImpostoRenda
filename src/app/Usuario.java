@@ -25,8 +25,8 @@ public class Usuario {
 
 
 	public boolean addRendimento(Rendimento rend1) {
-		if(rendimentos.add(rend1)) {
-			return true;
+		if(rendimentos.add(rend1)) { 
+			return true; 
 		}else{
 			return false;
 		}
@@ -60,7 +60,7 @@ public class Usuario {
 	}
 
 
-	public Object getTotalDeducoes() {
+	public double getTotalDeducoes() {
 		
 		totalDeducoes = 0.0;
 		

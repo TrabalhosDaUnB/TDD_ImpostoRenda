@@ -14,7 +14,7 @@ import app.Usuario;
 @RunWith(Parameterized.class)
 public class CadastroUsuarioTeste {
 	
-	private String nome;
+	private String nome; 
 	private String cpf;
 	
 	public CadastroUsuarioTeste(String n, String c) {

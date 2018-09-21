@@ -9,7 +9,7 @@ public class Rendimento {
 		return this.tipo;
 	}
 	
-	public double getValor() {
+	public double getValor() { 
 		return this.valor;
 	}
 
