@@ -62,14 +62,14 @@ public class CadastroDeducaoTeste {
 		resposta = user.addDeducao(ded);
 		assertTrue(resposta);
 		assertEquals(user.getNumeroDeducoes(),1);
-		assertEquals(user.getTotalDeducoes(),2,0.01);
+		assertEquals(user.getTotalDeducoes(),360.00,0.01);
 		
 		Deducao ded2 = Deducao.obterDeducao("previdencia", 555.55);
 		assertNotNull(ded2);
 		resposta = user.addDeducao(ded2);
 		assertTrue(resposta);
 		assertEquals(user.getNumeroDeducoes(),2);
-		assertEquals(user.getTotalDeducoes(),557.55,0.01);
+		assertEquals(user.getTotalDeducoes(),915.55,0.01);
 		
 	}
 
