@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import app.Rendimento;
+import app.Usuario;
+
 public class CadastroRendimentoTeste {
 
 	@Test
@@ -15,7 +18,7 @@ public class CadastroRendimentoTeste {
 		
 		boolean resposta = user.addRendimento(rend1);
 		assertTrue(resposta);
-		
+		assertEquals(user.getRendimentoTotal(), 2500.00,0.01);
 		
 	}
 
