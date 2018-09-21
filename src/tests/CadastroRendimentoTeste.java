@@ -49,7 +49,7 @@ public class CadastroRendimentoTeste {
 		resposta = user.addRendimento(rend2);
 		assertTrue(resposta);
 		
-		assertEquals(user.getRendimentoTotal(), 1500.00,0.01);
+		assertEquals(user.getRendimentoTotal(), 4000.00,0.01);
 		
 		
 	}
